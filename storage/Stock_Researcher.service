@@ -1,0 +1,16 @@
+
+[Unit]
+Description=Stock_Researcher
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=connor
+ExecStart=/home/connor/anaconda3/envs/Stock_Researcher/bin/python3 /home/connor/Stock_Researcher/main.py
+WorkingDirectory=/home/connor/Stock_Researcher
+Restart=always
+RestartSec=120
+
+[Install]
+WantedBy=multi-user.target
