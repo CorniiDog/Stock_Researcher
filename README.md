@@ -41,6 +41,8 @@
 
 This is a Stock Researcher. It is meant to obtain all company tickers, their websites, contact, and other information.
 
+Status: Complete.
+
 
 <!-- GETTING STARTED -->
 ## Getting Started

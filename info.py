@@ -22,6 +22,8 @@ data = {
 
 data["about"] = """
 This is a Stock Researcher. It is meant to obtain all company tickers, their websites, contact, and other information.
+
+Status: Complete.
 """
 
 data["project_name"] = os.path.basename(data["project_dir"])
