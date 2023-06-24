@@ -4,6 +4,39 @@ storage_folder = os.path.join(os.path.dirname(__file__), 'database')
 if not os.path.exists(storage_folder):
     os.makedirs(storage_folder)
 
+
+def set_storage_path(path):
+    """
+    Parameters
+    ----------
+    path : str
+        The path to the folder where the database files will be stored
+
+    Returns
+    -------
+    None
+        This function does not return anything
+
+    Notes
+    -----
+    This function is used to set the path to the folder where the database files will be stored
+
+    References
+    ----------
+    No Links
+
+    Examples
+    --------
+    set_storage_path('C:/Users/JohnDoe/Documents/MyDatabase')
+    """
+    global storage_folder
+    if not os.path.exists(storage_folder):
+        # throw error
+        raise Exception(f"Path {path} does not exist")
+
+    storage_folder = path
+
+
 def slugify(value, allow_unicode=False):
     """
     Parameters
@@ -11,7 +44,7 @@ def slugify(value, allow_unicode=False):
     value : str
         The string to be slugified
     allow_unicode : bool
-        Whether to allow unicode characters
+        Whether or not to allow unicode characters
 
     Returns
     -------
@@ -40,7 +73,7 @@ def slugify(value, allow_unicode=False):
     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
 
-def get(name: str) -> any:
+def get(name: str) -> object:
     """
     Parameters
     ----------
@@ -49,8 +82,8 @@ def get(name: str) -> any:
 
     Returns
     -------
-    any
-        The object that was loaded
+    object or None
+        The object loaded from the file, could be anything
 
     Notes
     -----
@@ -67,8 +100,6 @@ def get(name: str) -> any:
     if name.endswith('.pkl'):
         name = name[:-4]
     path = os.path.join(storage_folder, name + '.pkl')
-    if not os.path.exists(path):
-        return None
     with open(path, 'rb') as f:
         return pickle.load(f)
 
@@ -108,7 +139,7 @@ def save(name: str, data: any) -> None:
         pickle.dump(data, f)
 
 
-def delete_database(name: str) -> any:
+def delete_database(name: str) -> object:
     """
     Parameters
     ----------
@@ -117,8 +148,8 @@ def delete_database(name: str) -> any:
 
     Returns
     -------
-    any
-        The object that was deleted
+    object or None
+        The object loaded from the file, could be anything
 
     Notes
     -----
