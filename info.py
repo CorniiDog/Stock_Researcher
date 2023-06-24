@@ -12,7 +12,7 @@ data = {
     "github_image": "https://avatars.githubusercontent.com/u/69062901?v=4",
     "github_name": "ConnorAtmos",
     "github_url": "https://github.com/ConnorAtmos",
-    "project_name": "Stock_Researcher",
+    "project_name": "stock_researcher",
     "project_link": "https://github.com/ConnorAtmos/Stock_Researcher",
     "linked_in_url": "https://www.linkedin.com/in/connor-white-38a5501a0/",
     "path_to_logo": "/storage/logo.png",
