@@ -74,7 +74,7 @@ def slugify(value, allow_unicode=False):
     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
 
-def get(name: str) -> object:
+def get(name: str):
     """
     Parameters
     ----------
@@ -101,6 +101,10 @@ def get(name: str) -> object:
     if name.endswith('.pkl'):
         name = name[:-4]
     path = os.path.join(storage_folder, name + '.pkl')
+
+    if not os.path.exists(path):
+        return None
+
     with open(path, 'rb') as f:
         return pickle.load(f)
 
