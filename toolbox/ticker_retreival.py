@@ -196,9 +196,14 @@ def get_ticker_information(symbol: str, days_reset_frequency=14, request_fresh=F
     try:
         stock_info = yf.Ticker(symbol).info
     except Exception as e:
+        # If 404 error, then the ticker is not found
+        if '404' in str(e):
+            print("404 Not Found for " + symbol)
+            return None
+
         print(e)
         if cooldown_counter < 5:
-            print("Cooldown counter: " + str(cooldown_counter) + "of 5 for " + symbol)
+            print("Cooldown counter: " + str(cooldown_counter) + " of 5 for " + symbol)
             time.sleep(60*cooldown_counter)
             return get_ticker_information(symbol, days_reset_frequency, request_fresh, cooldown_counter + 1)
         else:
