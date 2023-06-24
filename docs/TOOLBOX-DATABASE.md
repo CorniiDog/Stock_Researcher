@@ -4,9 +4,54 @@ Import Statement: `from toolbox import database`
 
 Alternative Import Statement: `from toolbox.database import *`
 
+# function set_storage_path #
+
+### [def set_storage_path(path):](./../toolbox/database.py#L8) 
+
+Note
+
+```python
+    This function is used to set the path to the folder where the database files will be stored
+```
+
+Parameter
+
+```python
+    path : str
+        The path to the folder where the database files will be stored
+```
+
+Param
+
+```python
+ters
+    ----------
+    path : str
+        The path to the folder where the database files will be stored
+```
+
+Return
+
+```python
+    None
+        This function does not return anything
+```
+
+Example
+
+```python
+    set_storage_path('C:/Users/JohnDoe/Documents/MyDatabase')
+```
+
+Reference
+
+```python
+    No Links
+```
+
 # function slugify #
 
-### [def slugify(value, allow_unicode=False):](./../toolbox/database.py#L7) 
+### [def slugify(value, allow_unicode=False):](./../toolbox/database.py#L40) 
 
 Note
 
@@ -21,7 +66,7 @@ Parameter
     value : str
         The string to be slugified
     allow_unicode : bool
-        Whether to allow unicode characters
+        Whether or not to allow unicode characters
 ```
 
 Param
@@ -32,7 +77,7 @@ ters
     value : str
         The string to be slugified
     allow_unicode : bool
-        Whether to allow unicode characters
+        Whether or not to allow unicode characters
 ```
 
 Return
@@ -56,7 +101,7 @@ Reference
 
 # function get #
 
-### [def get(name: str) -> any:](./../toolbox/database.py#L43) 
+### [def get(name: str) -> object:](./../toolbox/database.py#L76) 
 
 Note
 
@@ -83,8 +128,8 @@ ters
 Return
 
 ```python
-    any
-        The object that was loaded
+    object or None
+        The object loaded from the file, could be anything
 ```
 
 Example
@@ -101,7 +146,7 @@ Reference
 
 # function save #
 
-### [def save(name: str, data: any) -> None:](./../toolbox/database.py#L76) 
+### [def save(name: str, data: any) -> None:](./../toolbox/database.py#L107) 
 
 Note
 
@@ -152,7 +197,7 @@ Reference
 
 # function delete_database #
 
-### [def delete_database(name: str) -> any:](./../toolbox/database.py#L111) 
+### [def delete_database(name: str) -> object:](./../toolbox/database.py#L142) 
 
 Note
 
@@ -179,8 +224,8 @@ ters
 Return
 
 ```python
-    any
-        The object that was deleted
+    object or None
+        The object loaded from the file, could be anything
 ```
 
 Example
@@ -201,7 +246,7 @@ Reference
 
 # function save_key #
 
-### [def save_key(platform: str, key: str, override: bool = False) -> None:](./../toolbox/database.py#L149) 
+### [def save_key(platform: str, key: str, override: bool = False) -> None:](./../toolbox/database.py#L180) 
 
 Note
 
@@ -254,7 +299,7 @@ Reference
 
 # function load_key #
 
-### [def load_key(platform: str) -> str:](./../toolbox/database.py#L196) 
+### [def load_key(platform: str) -> str:](./../toolbox/database.py#L227) 
 
 Note
 
