@@ -6,7 +6,7 @@ Alternative Import Statement: `from toolbox.database import *`
 
 # function set_storage_path #
 
-### [def set_storage_path(path):](./../toolbox/database.py#L8) 
+### [def set_storage_path(path):](./../toolbox/database.py#L9) 
 
 Note
 
@@ -51,7 +51,7 @@ Reference
 
 # function slugify #
 
-### [def slugify(value, allow_unicode=False):](./../toolbox/database.py#L40) 
+### [def slugify(value, allow_unicode=False):](./../toolbox/database.py#L41) 
 
 Note
 
@@ -101,7 +101,7 @@ Reference
 
 # function get #
 
-### [def get(name: str) -> object:](./../toolbox/database.py#L76) 
+### [def get(name: str) -> object:](./../toolbox/database.py#L77) 
 
 Note
 
@@ -144,9 +144,54 @@ Reference
     No Links
 ```
 
+# function get_modified_date #
+
+### [def get_modified_date(name: str):](./../toolbox/database.py#L108) 
+
+Note
+
+```python
+    This function is used to get the last modified date of a file in the database folder
+```
+
+Parameter
+
+```python
+    name : str
+        The name of the file to be loaded
+```
+
+Param
+
+```python
+ters
+    ----------
+    name : str
+        The name of the file to be loaded
+```
+
+Return
+
+```python
+    datetime.datetime or None
+        The datetime object of the last modified date
+```
+
+Example
+
+```python
+    date = get_modified_date('spreadsheet_people')
+```
+
+Reference
+
+```python
+    No Links
+```
+
 # function save #
 
-### [def save(name: str, data: any) -> None:](./../toolbox/database.py#L107) 
+### [def save(name: str, data: any) -> None:](./../toolbox/database.py#L143) 
 
 Note
 
@@ -197,7 +242,7 @@ Reference
 
 # function delete_database #
 
-### [def delete_database(name: str) -> object:](./../toolbox/database.py#L142) 
+### [def delete_database(name: str) -> object:](./../toolbox/database.py#L178) 
 
 Note
 
@@ -246,7 +291,7 @@ Reference
 
 # function save_key #
 
-### [def save_key(platform: str, key: str, override: bool = False) -> None:](./../toolbox/database.py#L180) 
+### [def save_key(platform: str, key: str, override: bool = False) -> None:](./../toolbox/database.py#L216) 
 
 Note
 
@@ -299,7 +344,7 @@ Reference
 
 # function load_key #
 
-### [def load_key(platform: str) -> str:](./../toolbox/database.py#L227) 
+### [def load_key(platform: str) -> str:](./../toolbox/database.py#L263) 
 
 Note
 

@@ -1,4 +1,5 @@
 import os, pickle, unicodedata, re
+import datetime
 
 storage_folder = os.path.join(os.path.dirname(__file__), 'database')
 if not os.path.exists(storage_folder):
@@ -102,6 +103,41 @@ def get(name: str) -> object:
     path = os.path.join(storage_folder, name + '.pkl')
     with open(path, 'rb') as f:
         return pickle.load(f)
+
+
+def get_modified_date(name: str):
+    """
+    Parameters
+    ----------
+    name : str
+        The name of the file to be loaded
+
+    Returns
+    -------
+    datetime.datetime or None
+        The datetime object of the last modified date
+
+    Notes
+    -----
+    This function is used to get the last modified date of a file in the database folder
+
+    References
+    ----------
+    No Links
+
+    Examples
+    --------
+    date = get_modified_date('spreadsheet_people')
+
+    """
+
+    if name.endswith('.pkl'):
+        name = name[:-4]
+    path = os.path.join(storage_folder, name + '.pkl')
+    if not os.path.exists(path):
+        return None
+    return datetime.datetime.fromtimestamp(os.path.getmtime(path))
+
 
 
 def save(name: str, data: any) -> None:

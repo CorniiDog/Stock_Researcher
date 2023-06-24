@@ -42,7 +42,7 @@ This is the documentation for the project Stock_Researcher.
 
 </summary>
 
-[def main():](./../main.py#L4) 
+[def main():](./../main.py#L13) 
 
 
 
@@ -54,7 +54,7 @@ This is the documentation for the project Stock_Researcher.
 <details>
 <summary>
 
-## Documentation For [toolbox/queue.py](/docs/TOOLBOX-QUEUE.md)
+## Documentation For [toolbox/ticker_retreival.py](/docs/TOOLBOX-TICKER_RETREIVAL.md)
 
 </summary>
 
@@ -62,13 +62,248 @@ This is the documentation for the project Stock_Researcher.
  <details>
 <summary>
 
-### > [class Queue](/docs/TOOLBOX-QUEUE.md#class-queue) 
+### > [function set_storage_path](/docs/TOOLBOX-TICKER_RETREIVAL.md#function-set_storage_path) 
 
 
 
 </summary>
 
-[class Queue:](./../toolbox/queue.py#L2) 
+[def set_storage_path(database_path: str, make_dir=False):](./../toolbox/ticker_retreival.py#L7) 
+
+Note
+
+
+```python
+    This function is used to set the path to the database. The database is a
+```
+
+Param
+
+
+```python
+    database_path: str
+        Path to the database
+    make_dir: bool
+        If True, create the directory if it does not exist
+```
+
+Return
+
+
+```python
+    None
+```
+
+Example
+
+
+```python
+    from toolbox import ticker_retreival
+    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
+```
+
+
+
+</details>
+
+
+ <details>
+<summary>
+
+### > [function get_tickers](/docs/TOOLBOX-TICKER_RETREIVAL.md#function-get_tickers) 
+
+
+
+</summary>
+
+[def get_tickers(days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L35) 
+
+Note
+
+
+```python
+    This function is used to get the list of tickers. The tickers are saved in the database. If the tickers are older
+```
+
+Param
+
+
+```python
+    days_reset_frequency: int
+        Number of days before the tickers are reset, to avoid making too many API calls
+
+    request_fresh: bool
+        If True, then the tickers are requested fresh from the API, regardless of the last update time
+```
+
+Return
+
+
+```python
+    tickers: list
+        List of tickers
+```
+
+Example
+
+
+```python
+    from toolbox import ticker_retreival
+    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
+    tickers = ticker_retreival.get_tickers()
+```
+
+Reference
+
+
+```python
+    https://levelup.gitconnected.com/how-to-get-all-stock-symbols-a73925c16a1b
+```
+
+
+
+</details>
+
+
+ <details>
+<summary>
+
+### > [function get_rejected_tickers](/docs/TOOLBOX-TICKER_RETREIVAL.md#function-get_rejected_tickers) 
+
+
+
+</summary>
+
+[def get_rejected_tickers(days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L111) 
+
+Note
+
+
+```python
+    This function is used to get the list of rejected tickers.
+    W = When Issued, or can be arrested for fraud
+    R = Rights Issue
+    P = “First Preferred Issue”. Preferred stocks are a separate entity.
+    Q = Bankruptcy
+```
+
+Param
+
+
+```python
+    days_reset_frequency: int
+        Number of days before the tickers are reset, to avoid making too many API calls
+
+    request_fresh: bool
+        If True, then the tickers are requested fresh from the API, regardless of the last update time
+```
+
+Return
+
+
+```python
+    rejected_tickers: list
+        List of rejected tickers
+```
+
+Example
+
+
+```python
+    from toolbox import ticker_retreival
+    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
+    rejected_tickers = ticker_retreival.get_rejected_tickers()
+```
+
+Reference
+
+
+```python
+    https://levelup.gitconnected.com/how-to-get-all-stock-symbols-a73925c16a1b
+```
+
+
+
+</details>
+
+
+ <details>
+<summary>
+
+### > [function get_ticker_information](/docs/TOOLBOX-TICKER_RETREIVAL.md#function-get_ticker_information) 
+
+
+
+</summary>
+
+[def get_ticker_information(symbol: str, days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L150) 
+
+Note
+
+
+```python
+    This function is used to get the information for a given ticker. The information is saved in the database. If the
+```
+
+Param
+
+
+```python
+    symbol: str
+        Ticker symbol
+
+    days_reset_frequency: int
+        Number of days before the tickers are reset, to avoid making too many API calls
+
+    request_fresh: bool
+        If True, then the tickers are requested fresh from the API, regardless of the last update time
+```
+
+Return
+
+
+```python
+    stock_info: dict
+        Dictionary of stock information
+```
+
+Example
+
+
+```python
+    from toolbox import ticker_retreival
+    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
+    stock_info = ticker_retreival.get_ticker_information('MSFT')
+    name = stock_info['shortName']
+    website = stock_info['website']
+    description = stock_info['longBusinessSummary']
+```
+
+
+
+</details>
+
+<br></details>
+
+
+<details>
+<summary>
+
+## Documentation For [toolbox/queue_local.py](/docs/TOOLBOX-QUEUE_LOCAL.md)
+
+</summary>
+
+
+ <details>
+<summary>
+
+### > [class Queue](/docs/TOOLBOX-QUEUE_LOCAL.md#class-queue) 
+
+
+
+</summary>
+
+[class Queue:](./../toolbox/queue_local.py#L2) 
 
 Note
 
@@ -112,13 +347,13 @@ Reference
  <details>
 <summary>
 
-### >  > [function Queue.init](/docs/TOOLBOX-QUEUE.md#function-queueinit) 
+### >  > [function Queue.init](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queueinit) 
 
 
 
 </summary>
 
-[def __init__(self, queue_list: list = None, max_size: int = None):](./../toolbox/queue.py#L30) 
+[def __init__(self, queue_list: list = None, max_size: int = None):](./../toolbox/queue_local.py#L30) 
 
 Note
 
@@ -163,13 +398,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.enqueue](/docs/TOOLBOX-QUEUE.md#function-queueenqueue) 
+### >  > [function Queue.enqueue](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queueenqueue) 
 
 
 
 </summary>
 
-[def enqueue(self, item):](./../toolbox/queue.py#L61) 
+[def enqueue(self, item):](./../toolbox/queue_local.py#L61) 
 
 Note
 
@@ -213,13 +448,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.dequeue](/docs/TOOLBOX-QUEUE.md#function-queuedequeue) 
+### >  > [function Queue.dequeue](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuedequeue) 
 
 
 
 </summary>
 
-[def dequeue(self):](./../toolbox/queue.py#L90) 
+[def dequeue(self):](./../toolbox/queue_local.py#L90) 
 
 Note
 
@@ -265,13 +500,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.size](/docs/TOOLBOX-QUEUE.md#function-queuesize) 
+### >  > [function Queue.size](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuesize) 
 
 
 
 </summary>
 
-[def size(self) -> int:](./../toolbox/queue.py#L118) 
+[def size(self) -> int:](./../toolbox/queue_local.py#L118) 
 
 Note
 
@@ -316,13 +551,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.is_empty](/docs/TOOLBOX-QUEUE.md#function-queueis_empty) 
+### >  > [function Queue.is_empty](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queueis_empty) 
 
 
 
 </summary>
 
-[def is_empty(self) -> bool:](./../toolbox/queue.py#L146) 
+[def is_empty(self) -> bool:](./../toolbox/queue_local.py#L146) 
 
 Note
 
@@ -366,13 +601,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.peek](/docs/TOOLBOX-QUEUE.md#function-queuepeek) 
+### >  > [function Queue.peek](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuepeek) 
 
 
 
 </summary>
 
-[def peek(self):](./../toolbox/queue.py#L173) 
+[def peek(self):](./../toolbox/queue_local.py#L173) 
 
 Note
 
@@ -418,13 +653,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.get_list](/docs/TOOLBOX-QUEUE.md#function-queueget_list) 
+### >  > [function Queue.get_list](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queueget_list) 
 
 
 
 </summary>
 
-[def get_list(self):](./../toolbox/queue.py#L201) 
+[def get_list(self):](./../toolbox/queue_local.py#L201) 
 
 Note
 
@@ -470,13 +705,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.len](/docs/TOOLBOX-QUEUE.md#function-queuelen) 
+### >  > [function Queue.len](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuelen) 
 
 
 
 </summary>
 
-[def __len__(self):](./../toolbox/queue.py#L230) 
+[def __len__(self):](./../toolbox/queue_local.py#L230) 
 
 Note
 
@@ -520,13 +755,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.copy](/docs/TOOLBOX-QUEUE.md#function-queuecopy) 
+### >  > [function Queue.copy](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuecopy) 
 
 
 
 </summary>
 
-[def copy(self):](./../toolbox/queue.py#L256) 
+[def copy(self):](./../toolbox/queue_local.py#L256) 
 
 Note
 
@@ -572,13 +807,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.copy](/docs/TOOLBOX-QUEUE.md#function-queuecopy) 
+### >  > [function Queue.copy](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuecopy) 
 
 
 
 </summary>
 
-[def __copy__(self):](./../toolbox/queue.py#L288) 
+[def __copy__(self):](./../toolbox/queue_local.py#L288) 
 
 Note
 
@@ -624,13 +859,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.eq](/docs/TOOLBOX-QUEUE.md#function-queueeq) 
+### >  > [function Queue.eq](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queueeq) 
 
 
 
 </summary>
 
-[def __eq__(self, other):](./../toolbox/queue.py#L317) 
+[def __eq__(self, other):](./../toolbox/queue_local.py#L317) 
 
 Note
 
@@ -673,13 +908,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.ne](/docs/TOOLBOX-QUEUE.md#function-queuene) 
+### >  > [function Queue.ne](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuene) 
 
 
 
 </summary>
 
-[def __ne__(self, other):](./../toolbox/queue.py#L348) 
+[def __ne__(self, other):](./../toolbox/queue_local.py#L348) 
 
 Note
 
@@ -722,13 +957,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.getitem](/docs/TOOLBOX-QUEUE.md#function-queuegetitem) 
+### >  > [function Queue.getitem](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuegetitem) 
 
 
 
 </summary>
 
-[def __getitem__(self, index):](./../toolbox/queue.py#L373) 
+[def __getitem__(self, index):](./../toolbox/queue_local.py#L373) 
 
 Note
 
@@ -770,13 +1005,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.setitem](/docs/TOOLBOX-QUEUE.md#function-queuesetitem) 
+### >  > [function Queue.setitem](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuesetitem) 
 
 
 
 </summary>
 
-[def __setitem__(self, index, value):](./../toolbox/queue.py#L397) 
+[def __setitem__(self, index, value):](./../toolbox/queue_local.py#L397) 
 
 Note
 
@@ -820,13 +1055,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.delitem](/docs/TOOLBOX-QUEUE.md#function-queuedelitem) 
+### >  > [function Queue.delitem](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuedelitem) 
 
 
 
 </summary>
 
-[def __delitem__(self, index):](./../toolbox/queue.py#L423) 
+[def __delitem__(self, index):](./../toolbox/queue_local.py#L423) 
 
 Note
 
@@ -868,13 +1103,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.iter](/docs/TOOLBOX-QUEUE.md#function-queueiter) 
+### >  > [function Queue.iter](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queueiter) 
 
 
 
 </summary>
 
-[def __iter__(self):](./../toolbox/queue.py#L447) 
+[def __iter__(self):](./../toolbox/queue_local.py#L447) 
 
 Note
 
@@ -916,13 +1151,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.reversed](/docs/TOOLBOX-QUEUE.md#function-queuereversed) 
+### >  > [function Queue.reversed](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuereversed) 
 
 
 
 </summary>
 
-[def __reversed__(self):](./../toolbox/queue.py#L471) 
+[def __reversed__(self):](./../toolbox/queue_local.py#L471) 
 
 Note
 
@@ -964,13 +1199,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.contains](/docs/TOOLBOX-QUEUE.md#function-queuecontains) 
+### >  > [function Queue.contains](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuecontains) 
 
 
 
 </summary>
 
-[def __contains__(self, item):](./../toolbox/queue.py#L495) 
+[def __contains__(self, item):](./../toolbox/queue_local.py#L495) 
 
 Note
 
@@ -1012,13 +1247,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.add](/docs/TOOLBOX-QUEUE.md#function-queueadd) 
+### >  > [function Queue.add](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queueadd) 
 
 
 
 </summary>
 
-[def __add__(self, other):](./../toolbox/queue.py#L519) 
+[def __add__(self, other):](./../toolbox/queue_local.py#L519) 
 
 Note
 
@@ -1062,13 +1297,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.iadd](/docs/TOOLBOX-QUEUE.md#function-queueiadd) 
+### >  > [function Queue.iadd](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queueiadd) 
 
 
 
 </summary>
 
-[def __iadd__(self, other):](./../toolbox/queue.py#L550) 
+[def __iadd__(self, other):](./../toolbox/queue_local.py#L550) 
 
 Note
 
@@ -1112,13 +1347,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.mul](/docs/TOOLBOX-QUEUE.md#function-queuemul) 
+### >  > [function Queue.mul](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuemul) 
 
 
 
 </summary>
 
-[def __mul__(self, other):](./../toolbox/queue.py#L578) 
+[def __mul__(self, other):](./../toolbox/queue_local.py#L578) 
 
 Note
 
@@ -1161,13 +1396,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.imul](/docs/TOOLBOX-QUEUE.md#function-queueimul) 
+### >  > [function Queue.imul](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queueimul) 
 
 
 
 </summary>
 
-[def __imul__(self, other):](./../toolbox/queue.py#L607) 
+[def __imul__(self, other):](./../toolbox/queue_local.py#L607) 
 
 Note
 
@@ -1210,13 +1445,13 @@ Example
  <details>
 <summary>
 
-### >  > [function Queue.str](/docs/TOOLBOX-QUEUE.md#function-queuestr) 
+### >  > [function Queue.str](/docs/TOOLBOX-QUEUE_LOCAL.md#function-queuestr) 
 
 
 
 </summary>
 
-[def __str__(self):](./../toolbox/queue.py#L636) 
+[def __str__(self):](./../toolbox/queue_local.py#L636) 
 
 Note
 
@@ -1275,7 +1510,7 @@ Example
 
 </summary>
 
-[def set_storage_path(path):](./../toolbox/database.py#L8) 
+[def set_storage_path(path):](./../toolbox/database.py#L9) 
 
 Note
 
@@ -1338,7 +1573,7 @@ Reference
 
 </summary>
 
-[def slugify(value, allow_unicode=False):](./../toolbox/database.py#L40) 
+[def slugify(value, allow_unicode=False):](./../toolbox/database.py#L41) 
 
 Note
 
@@ -1406,7 +1641,7 @@ Reference
 
 </summary>
 
-[def get(name: str) -> object:](./../toolbox/database.py#L76) 
+[def get(name: str) -> object:](./../toolbox/database.py#L77) 
 
 Note
 
@@ -1463,13 +1698,76 @@ Reference
  <details>
 <summary>
 
+### > [function get_modified_date](/docs/TOOLBOX-DATABASE.md#function-get_modified_date) 
+
+
+
+</summary>
+
+[def get_modified_date(name: str):](./../toolbox/database.py#L108) 
+
+Note
+
+
+```python
+    This function is used to get the last modified date of a file in the database folder
+```
+
+Parameter
+
+
+```python
+    name : str
+        The name of the file to be loaded
+```
+
+Param
+
+
+```python
+ters
+    ----------
+    name : str
+        The name of the file to be loaded
+```
+
+Return
+
+
+```python
+    datetime.datetime or None
+        The datetime object of the last modified date
+```
+
+Example
+
+
+```python
+    date = get_modified_date('spreadsheet_people')
+```
+
+Reference
+
+
+```python
+    No Links
+```
+
+
+
+</details>
+
+
+ <details>
+<summary>
+
 ### > [function save](/docs/TOOLBOX-DATABASE.md#function-save) 
 
 
 
 </summary>
 
-[def save(name: str, data: any) -> None:](./../toolbox/database.py#L107) 
+[def save(name: str, data: any) -> None:](./../toolbox/database.py#L143) 
 
 Note
 
@@ -1538,7 +1836,7 @@ Reference
 
 </summary>
 
-[def delete_database(name: str) -> object:](./../toolbox/database.py#L142) 
+[def delete_database(name: str) -> object:](./../toolbox/database.py#L178) 
 
 Note
 
@@ -1605,7 +1903,7 @@ Reference
 
 </summary>
 
-[def save_key(platform: str, key: str, override: bool = False) -> None:](./../toolbox/database.py#L180) 
+[def save_key(platform: str, key: str, override: bool = False) -> None:](./../toolbox/database.py#L216) 
 
 Note
 
@@ -1676,7 +1974,7 @@ Reference
 
 </summary>
 
-[def load_key(platform: str) -> str:](./../toolbox/database.py#L227) 
+[def load_key(platform: str) -> str:](./../toolbox/database.py#L263) 
 
 Note
 

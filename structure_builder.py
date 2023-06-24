@@ -18,6 +18,10 @@ with open(info.data["service_path"], "w") as f:
 output = ""
 documentation = ""
 
+# Remove all files in "docs" folder
+for file in os.listdir(info.data["docs_folder"]):
+    os.remove(info.data["docs_folder"] + "/" + file)
+
 
 # Iterate through instructions folder
 for file in sorted(os.listdir("instructions")):
