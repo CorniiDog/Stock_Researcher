@@ -101,7 +101,7 @@ Reference
 
 # function get #
 
-### [def get(name: str) -> object:](./../toolbox/database.py#L77) 
+### [def get(name: str):](./../toolbox/database.py#L77) 
 
 Note
 
@@ -146,7 +146,7 @@ Reference
 
 # function get_modified_date #
 
-### [def get_modified_date(name: str):](./../toolbox/database.py#L108) 
+### [def get_modified_date(name: str):](./../toolbox/database.py#L112) 
 
 Note
 
@@ -191,7 +191,7 @@ Reference
 
 # function save #
 
-### [def save(name: str, data: any) -> None:](./../toolbox/database.py#L143) 
+### [def save(name: str, data: any) -> None:](./../toolbox/database.py#L147) 
 
 Note
 
@@ -242,7 +242,7 @@ Reference
 
 # function delete_database #
 
-### [def delete_database(name: str) -> object:](./../toolbox/database.py#L178) 
+### [def delete_database(name: str) -> object:](./../toolbox/database.py#L182) 
 
 Note
 
@@ -291,7 +291,7 @@ Reference
 
 # function save_key #
 
-### [def save_key(platform: str, key: str, override: bool = False) -> None:](./../toolbox/database.py#L216) 
+### [def save_key(platform: str, key: str, override: bool = False) -> None:](./../toolbox/database.py#L220) 
 
 Note
 
@@ -344,7 +344,7 @@ Reference
 
 # function load_key #
 
-### [def load_key(platform: str) -> str:](./../toolbox/database.py#L263) 
+### [def load_key(platform: str) -> str:](./../toolbox/database.py#L267) 
 
 Note
 

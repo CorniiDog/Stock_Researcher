@@ -68,7 +68,7 @@ This is the documentation for the project Stock_Researcher.
 
 </summary>
 
-[def set_storage_path(database_path: str, make_dir=False):](./../toolbox/ticker_retreival.py#L7) 
+[def set_storage_path(database_path: str, make_dir=False):](./../toolbox/ticker_retreival.py#L8) 
 
 Note
 
@@ -116,7 +116,7 @@ Example
 
 </summary>
 
-[def get_tickers(days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L35) 
+[def get_tickers(days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L37) 
 
 Note
 
@@ -174,7 +174,7 @@ Reference
 
 </summary>
 
-[def get_rejected_tickers(days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L111) 
+[def get_rejected_tickers(days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L112) 
 
 Note
 
@@ -236,7 +236,7 @@ Reference
 
 </summary>
 
-[def get_ticker_information(symbol: str, days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L150) 
+[def get_ticker_information(symbol: str, days_reset_frequency=14, request_fresh=False, cooldown_counter=0):](./../toolbox/ticker_retreival.py#L151) 
 
 Note
 
@@ -277,6 +277,58 @@ Example
     name = stock_info['shortName']
     website = stock_info['website']
     description = stock_info['longBusinessSummary']
+```
+
+
+
+</details>
+
+
+ <details>
+<summary>
+
+### > [function get_all_ticker_information](/docs/TOOLBOX-TICKER_RETREIVAL.md#function-get_all_ticker_information) 
+
+
+
+</summary>
+
+[def get_all_ticker_information(days_reset_frequency=1, request_fresh=False):](./../toolbox/ticker_retreival.py#L218) 
+
+Note
+
+
+```python
+    This function is used to get the information for all tickers. The information is saved in the database. If the
+```
+
+Param
+
+
+```python
+    days_reset_frequency: int
+        Number of days before the tickers are reset, to avoid making too many API calls
+
+    request_fresh: bool
+        If True, then the tickers are requested fresh from the API, regardless of the last update time
+```
+
+Return
+
+
+```python
+    all_info: dict
+        Dictionary of stock information for all tickers
+```
+
+Example
+
+
+```python
+    from toolbox import ticker_retreival
+    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
+    all_info = ticker_retreival.get_all_ticker_information()
+    print(all_info['MSFT']['shortName'])
 ```
 
 
@@ -1641,7 +1693,7 @@ Reference
 
 </summary>
 
-[def get(name: str) -> object:](./../toolbox/database.py#L77) 
+[def get(name: str):](./../toolbox/database.py#L77) 
 
 Note
 
@@ -1704,7 +1756,7 @@ Reference
 
 </summary>
 
-[def get_modified_date(name: str):](./../toolbox/database.py#L108) 
+[def get_modified_date(name: str):](./../toolbox/database.py#L112) 
 
 Note
 
@@ -1767,7 +1819,7 @@ Reference
 
 </summary>
 
-[def save(name: str, data: any) -> None:](./../toolbox/database.py#L143) 
+[def save(name: str, data: any) -> None:](./../toolbox/database.py#L147) 
 
 Note
 
@@ -1836,7 +1888,7 @@ Reference
 
 </summary>
 
-[def delete_database(name: str) -> object:](./../toolbox/database.py#L178) 
+[def delete_database(name: str) -> object:](./../toolbox/database.py#L182) 
 
 Note
 
@@ -1903,7 +1955,7 @@ Reference
 
 </summary>
 
-[def save_key(platform: str, key: str, override: bool = False) -> None:](./../toolbox/database.py#L216) 
+[def save_key(platform: str, key: str, override: bool = False) -> None:](./../toolbox/database.py#L220) 
 
 Note
 
@@ -1974,7 +2026,7 @@ Reference
 
 </summary>
 
-[def load_key(platform: str) -> str:](./../toolbox/database.py#L263) 
+[def load_key(platform: str) -> str:](./../toolbox/database.py#L267) 
 
 Note
 

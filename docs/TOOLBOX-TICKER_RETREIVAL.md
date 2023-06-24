@@ -6,7 +6,7 @@ Alternative Import Statement: `from toolbox.ticker_retreival import *`
 
 # function set_storage_path #
 
-### [def set_storage_path(database_path: str, make_dir=False):](./../toolbox/ticker_retreival.py#L7) 
+### [def set_storage_path(database_path: str, make_dir=False):](./../toolbox/ticker_retreival.py#L8) 
 
 Note
 
@@ -38,7 +38,7 @@ Example
 
 # function get_tickers #
 
-### [def get_tickers(days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L35) 
+### [def get_tickers(days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L37) 
 
 Note
 
@@ -79,7 +79,7 @@ Reference
 
 # function get_rejected_tickers #
 
-### [def get_rejected_tickers(days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L111) 
+### [def get_rejected_tickers(days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L112) 
 
 Note
 
@@ -124,7 +124,7 @@ Reference
 
 # function get_ticker_information #
 
-### [def get_ticker_information(symbol: str, days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L150) 
+### [def get_ticker_information(symbol: str, days_reset_frequency=14, request_fresh=False, cooldown_counter=0):](./../toolbox/ticker_retreival.py#L151) 
 
 Note
 
@@ -161,5 +161,41 @@ Example
     name = stock_info['shortName']
     website = stock_info['website']
     description = stock_info['longBusinessSummary']
+```
+
+# function get_all_ticker_information #
+
+### [def get_all_ticker_information(days_reset_frequency=1, request_fresh=False):](./../toolbox/ticker_retreival.py#L218) 
+
+Note
+
+```python
+    This function is used to get the information for all tickers. The information is saved in the database. If the
+```
+
+Param
+
+```python
+    days_reset_frequency: int
+        Number of days before the tickers are reset, to avoid making too many API calls
+
+    request_fresh: bool
+        If True, then the tickers are requested fresh from the API, regardless of the last update time
+```
+
+Return
+
+```python
+    all_info: dict
+        Dictionary of stock information for all tickers
+```
+
+Example
+
+```python
+    from toolbox import ticker_retreival
+    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
+    all_info = ticker_retreival.get_all_ticker_information()
+    print(all_info['MSFT']['shortName'])
 ```
 
