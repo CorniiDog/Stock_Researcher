@@ -20,7 +20,6 @@ data = {
     "full_name": "Connor White",
 }
 
-
 data["project_name"] = os.path.basename(data["project_dir"])
 data["path_to_conda_python"] = f"{data['home_dir']}/anaconda3/envs/{data['project_name']}/bin/python3"
 data["file_to_run"] = f"{data['project_dir']}/main.py"
