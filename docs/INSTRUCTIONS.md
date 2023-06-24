@@ -7,11 +7,11 @@
 
 ### 1. Git Clone this repository: ###
 
-    git clone https://github.com/ConnorAtmos/Template
+    git clone https://github.com/ConnorAtmos/Template <project_name>
 
     or
 
-    git clone git@github.com:ConnorAtmos/Template.git
+    git clone git@github.com:ConnorAtmos/Template.git <project_name>
 
 
 ### 2. Rename the project directory: ###
@@ -27,6 +27,9 @@
 ### 4. Run structure_builder.py for next steps: ###
 
     python3 structure_builder.py
+
+
+You should then modify info.py. This file contains all the information about your project.
 
 
 

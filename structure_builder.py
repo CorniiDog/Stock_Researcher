@@ -2,8 +2,6 @@ import os, re
 import info
 # Set project directory to current directory
 
-sections = ["Note", "Parameter", "Param", "Return", "Example", "Reference", "Description"]
-
 output_instructions = True
 
 if not os.path.exists(info.data["requirements_folder"]):
@@ -17,11 +15,6 @@ with open(info.data["service_path"], "w") as f:
 
 output = ""
 documentation = ""
-
-# Remove all files in "docs" folder
-for file in os.listdir(info.data["docs_folder"]):
-    os.remove(info.data["docs_folder"] + "/" + file)
-
 
 # Iterate through instructions folder
 for file in sorted(os.listdir("instructions")):
@@ -57,12 +50,17 @@ if output_instructions:
     turn_to_readme = format_for_readme(output, document_path="docs/INSTRUCTIONS.md")
 
     with open("README.md", "w") as f:
-        f.write("[For Documentation, Click Here](docs/DOCS.md)\n\n")
         # Add all lines from ABOUT.md to README.md
         with open("ABOUT.md", "r") as about:
             for line in about.readlines():
+
+                for key, value in info.data.items():
+                    line = line.replace("<" + key + ">", str(value))
+
                 f.write(line)
             f.write("\n\n")
+        f.write("""## DOCUMENTATION\n\n""")
+        f.write("[For Documentation, Click Here](docs/DOCS.md)\n\n")
 
     with open(info.data["docs_folder"] + "/INSTRUCTIONS.md", "w") as f:
         # Provide link to go back to DOCS.md
@@ -154,16 +152,17 @@ if output_instructions:
                             else:
                                 return get_class_documentation(k + 1, offset=offset + 1)
 
-                    def document_data(i, name, line, docs, parent_string="", obj_type="function", spaces="> "):
+                    def document_data(i, name, line, docs, parent_string="", obj_type="function", spaces = "> "):
                         # Remove underscores from front and back only, not in the middle
                         name = name.strip("_")
                         name = parent_string + name
-                        file2.write(f"# {obj_type + ' ' + name} #\n\n")
+                        file2.write(f"# {spaces} {obj_type + ' ' + name} #\n\n")
                         class_declaration = line
                         file2.write(f"### [{class_declaration.strip()}](./../{file_path}#L{i + 1}) \n\n")
                         file_documentation = f"/{file_document_path}#{obj_type}-{name.lower().replace(' ', '-').replace('.', '')}"
                         writing_header = f"### {spaces}[{obj_type + ' ' + name}]({file_documentation}) \n\n"
                         documents = get_class_documentation(i + 1)
+                        sections = ["Notes", "Parameters", "Returns", "Examples", "References"]
                         new_documentation = ""
                         for section in sections:
                             if section in documents:

@@ -4,7 +4,7 @@ Import Statement: `import main`
 
 Alternative Import Statement: `from main import *`
 
-# function main #
+# >  function main #
 
 ### [def main():](./../main.py#L13) 
 
