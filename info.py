@@ -11,9 +11,6 @@ data = {
     "Ubuntu_Username": "connor",
     "github_image": "https://avatars.githubusercontent.com/u/69062901?v=4",
     "github_name": "ConnorAtmos",
-    "github_url": "https://github.com/ConnorAtmos",
-    "project_name": "Stock_Researcher",
-    "project_link": "https://github.com/ConnorAtmos/Stock_Researcher",
     "linked_in_url": "https://www.linkedin.com/in/connor-white-38a5501a0/",
     "path_to_logo": "/storage/logo.png",
     "email": "connor.sw.personal@gmail.com",
@@ -23,10 +20,12 @@ data = {
 data["about"] = """
 This is a Stock Researcher. It is meant to obtain all company tickers, their websites, contact, and other information.
 
-Status: Complete.
+Status: Completed
 """
 
 data["project_name"] = os.path.basename(data["project_dir"])
+data["project_link"] = f"https://github.com/{data['github_name']}/{data['project_name']}"
+data["github_url"] = f"https://github.com/{data['github_name']}"
 data["path_to_conda_python"] = f"{data['home_dir']}/anaconda3/envs/{data['project_name']}/bin/python3"
 data["file_to_run"] = f"{data['project_dir']}/main.py"
 data["requirements_folder"] = f"{data['project_dir']}/requirements"
