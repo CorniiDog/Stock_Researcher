@@ -247,7 +247,7 @@ Example
 
 </summary>
 
-[def get_all_ticker_information(days_reset_frequency=1, request_fresh=False):](./../toolbox/ticker_retreival.py#L223) 
+[def get_all_ticker_information(days_reset_frequency=1, request_fresh=False):](./../toolbox/ticker_retreival.py#L232) 
 
 Note
 
