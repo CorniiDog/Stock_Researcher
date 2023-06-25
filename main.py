@@ -9,13 +9,13 @@ storage_path = "/mnt/nvme1n1p1/"
 database_path = os.path.join(storage_path, "database")
 ticker_retreival.set_storage_path(database_path)
 
-
+days_to_refresh = 5
 def main():
     last_updated = 0
     while True:
         now = time.time()
         # If it is a new day, update the database
-        if now - last_updated > 86400:
+        if now - last_updated > 86400 * days_to_refresh:
             print("New Day, updating database")
             ticker_info = ticker_retreival.get_all_ticker_information()
             last_updated = now
