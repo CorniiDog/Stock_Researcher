@@ -7,7 +7,7 @@
 
 ### 1. Git Clone this repository (project_name is the name of the project you want to create): ###
 
-    git clone https://github.com/connoratmos/stock_researcher <project_name>
+    git clone https://github.com/ConnorAtmos/Stock_Researcher <project_name>
 
 
 ### 2. CD into the project directory and remove the git repository: ###
@@ -42,7 +42,7 @@ Conda is a package manager for python. It is used to install python packages and
     wget [conda_install_link]
 
 
-    wget https://repo.anaconda.com/archive/anaconda3-2022.05-linux-x86_64.sh
+    wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
 
 
 ### 3. Run the following command to install conda: ###
@@ -51,7 +51,7 @@ Conda is a package manager for python. It is used to install python packages and
     bash [conda_file]
 
 
-    bash anaconda3-2022.05-linux-x86_64.sh
+    bash Anaconda3-2022.05-Linux-x86_64.sh
 
 
 ### 4. Run the following command to update conda: ###
@@ -79,7 +79,7 @@ This is for creating a new conda environment.
     conda create --name [project_name]
 
 
-    conda create --name stock_researcher
+    conda create --name Stock_Researcher
 
 
 ### 2. Reload the bashrc file: ###
@@ -120,7 +120,7 @@ This is for installing python packages and conda packages.
     cd [project_dir]
 
 
-    cd /home/connor/stock_researcher
+    cd /home/connor/Stock_Researcher
 
 
 ### 2. Activate the conda environment: ###
@@ -128,7 +128,7 @@ This is for installing python packages and conda packages.
     conda activate [project_name]
 
 
-    conda activate stock_researcher
+    conda activate Stock_Researcher
 
 
 ### 3. Install the following requirements: ###
@@ -137,12 +137,12 @@ This is for installing python packages and conda packages.
     pip install -r [requirements_file] && conda install --file [conda_requirements_file]  && conda install -c conda-forge --file [conda_forge_requirements_file]
 
 
-    pip install -r /home/connor/stock_researcher/requirements/requirements.txt && conda install --file /home/connor/stock_researcher/requirements/conda_requirements.txt  && conda install -c conda-forge --file /home/connor/stock_researcher/requirements/conda_forge_requirements.txt
+    pip install -r /home/connor/Stock_Researcher/requirements/requirements.txt && conda install --file /home/connor/Stock_Researcher/requirements/conda_requirements.txt  && conda install -c conda-forge --file /home/connor/Stock_Researcher/requirements/conda_forge_requirements.txt
 
 
 ### 4. Install the following apt-get requirements: ###
 
-    [no apt-get requirements]
+    [No apt-get requirements]
 
 
 
@@ -160,7 +160,7 @@ A service is a program that runs in the background. This is useful for running a
     sudo mv [service_path] [service_moved_path]
 
 
-    sudo mv /home/connor/stock_researcher/storage/stock_researcher.service /etc/systemd/system/stock_researcher.service
+    sudo mv /home/connor/Stock_Researcher/storage/Stock_Researcher.service /etc/systemd/system/Stock_Researcher.service
 
 
 ### 2. Reload the daemon: ###
@@ -173,7 +173,7 @@ A service is a program that runs in the background. This is useful for running a
     sudo systemctl enable [service_name]
 
 
-    sudo systemctl enable stock_researcher.service
+    sudo systemctl enable Stock_Researcher.service
 
 
 ### 4. Start the service: ###
@@ -181,7 +181,7 @@ A service is a program that runs in the background. This is useful for running a
     sudo systemctl restart [service_name]
 
 
-    sudo systemctl restart stock_researcher.service
+    sudo systemctl restart Stock_Researcher.service
 
 
 ### 5. View status of service: ###
@@ -189,7 +189,7 @@ A service is a program that runs in the background. This is useful for running a
     sudo systemctl status [service_name]
 
 
-    sudo systemctl status stock_researcher.service
+    sudo systemctl status Stock_Researcher.service
 
 
 To stop the service, run:
@@ -197,7 +197,7 @@ To stop the service, run:
     sudo systemctl stop [service_name]
 
 
-    sudo systemctl stop stock_researcher.service
+    sudo systemctl stop Stock_Researcher.service
 
 
 To disable the service, run:
@@ -205,7 +205,7 @@ To disable the service, run:
     sudo systemctl disable [service_name
 
 
-    sudo systemctl disable stock_researcher.service
+    sudo systemctl disable Stock_Researcher.service
 
 
 
@@ -222,7 +222,7 @@ This is for removing the conda environment.
     conda env remove --name [project_name]
 
 
-    conda env remove --name stock_researcher
+    conda env remove --name Stock_Researcher
 
 
 ### 2. Reload the bashrc file: ###
@@ -244,7 +244,7 @@ This is for uninstalling and removing the service.
     sudo systemctl disable [service_name]
 
 
-    sudo systemctl disable stock_researcher.service
+    sudo systemctl disable Stock_Researcher.service
 
 
 ### 2. Run the following command to stop the service: ###
@@ -252,7 +252,7 @@ This is for uninstalling and removing the service.
     sudo systemctl stop [service_name]
 
 
-    sudo systemctl stop stock_researcher.service
+    sudo systemctl stop Stock_Researcher.service
 
 
 ### 3. Run the following command to delete the service file: ###
@@ -260,7 +260,7 @@ This is for uninstalling and removing the service.
     sudo rm [service_moved_path]
 
 
-    sudo rm /etc/systemd/system/stock_researcher.service
+    sudo rm /etc/systemd/system/Stock_Researcher.service
 
 
 

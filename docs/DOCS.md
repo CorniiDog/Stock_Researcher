@@ -70,23 +70,26 @@ This is the documentation for the project Stock_Researcher.
 
 [def set_storage_path(database_path: str, make_dir=False):](./../toolbox/ticker_retreival.py#L8) 
 
-Notes
+Note
 
 
 ```python
     This function is used to set the path to the database. The database is a
-
-    Example
-    --------
-    from toolbox import ticker_retreival
-    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
 ```
 
-Returns
+Return
 
 
 ```python
     None
+```
+
+Example
+
+
+```python
+    from toolbox import ticker_retreival
+    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
 ```
 
 
@@ -105,28 +108,34 @@ Returns
 
 [def get_tickers(days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L37) 
 
-Notes
+Note
 
 
 ```python
     This function is used to get the list of tickers. The tickers are saved in the database. If the tickers are older
-
-    Example
-    --------
-    from toolbox import ticker_retreival
-    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
-    tickers = ticker_retreival.get_tickers()
 ```
 
-Returns
+Return
 
 
 ```python
     tickers: list
         List of tickers
+```
 
-    Reference
-    ---------
+Example
+
+
+```python
+    from toolbox import ticker_retreival
+    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
+    tickers = ticker_retreival.get_tickers()
+```
+
+Reference
+
+
+```python
     https://levelup.gitconnected.com/how-to-get-all-stock-symbols-a73925c16a1b
 ```
 
@@ -146,7 +155,7 @@ Returns
 
 [def get_rejected_tickers(days_reset_frequency=7, request_fresh=False):](./../toolbox/ticker_retreival.py#L112) 
 
-Notes
+Note
 
 
 ```python
@@ -155,24 +164,30 @@ Notes
     R = Rights Issue
     P = “First Preferred Issue”. Preferred stocks are a separate entity.
     Q = Bankruptcy
-
-    Reference
-    ---------
-    https://levelup.gitconnected.com/how-to-get-all-stock-symbols-a73925c16a1b
-
-    Example
-    --------
-    from toolbox import ticker_retreival
-    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
-    rejected_tickers = ticker_retreival.get_rejected_tickers()
 ```
 
-Returns
+Return
 
 
 ```python
     rejected_tickers: list
         List of rejected tickers
+```
+
+Example
+
+
+```python
+    from toolbox import ticker_retreival
+    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
+    rejected_tickers = ticker_retreival.get_rejected_tickers()
+```
+
+Reference
+
+
+```python
+    https://levelup.gitconnected.com/how-to-get-all-stock-symbols-a73925c16a1b
 ```
 
 
@@ -191,28 +206,31 @@ Returns
 
 [def get_ticker_information(symbol: str, days_reset_frequency=14, request_fresh=False, cooldown_counter=0):](./../toolbox/ticker_retreival.py#L151) 
 
-Notes
+Note
 
 
 ```python
     This function is used to get the information for a given ticker. The information is saved in the database. If the
+```
 
-    Example
-    --------
+Return
+
+
+```python
+    stock_info: dict
+        Dictionary of stock information
+```
+
+Example
+
+
+```python
     from toolbox import ticker_retreival
     ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
     stock_info = ticker_retreival.get_ticker_information('MSFT')
     name = stock_info['shortName']
     website = stock_info['website']
     description = stock_info['longBusinessSummary']
-```
-
-Returns
-
-
-```python
-    stock_info: dict
-        Dictionary of stock information
 ```
 
 
@@ -231,26 +249,29 @@ Returns
 
 [def get_all_ticker_information(days_reset_frequency=1, request_fresh=False):](./../toolbox/ticker_retreival.py#L223) 
 
-Notes
+Note
 
 
 ```python
     This function is used to get the information for all tickers. The information is saved in the database. If the
-
-    Example
-    --------
-    from toolbox import ticker_retreival
-    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
-    all_info = ticker_retreival.get_all_ticker_information()
-    print(all_info['MSFT']['shortName'])
 ```
 
-Returns
+Return
 
 
 ```python
     all_info: dict
         Dictionary of stock information for all tickers
+```
+
+Example
+
+
+```python
+    from toolbox import ticker_retreival
+    ticker_retreival.set_storage_path('C:/Users/username/PycharmProjects/stock_analysis/database')
+    all_info = ticker_retreival.get_all_ticker_information()
+    print(all_info['MSFT']['shortName'])
 ```
 
 
@@ -279,7 +300,7 @@ Returns
 
 [class Queue:](./../toolbox/queue_local.py#L2) 
 
-Notes
+Note
 
 
 ```python
@@ -288,7 +309,7 @@ Notes
     A queue can be implemented using a list or a linked list.
 ```
 
-Examples
+Example
 
 
 ```python
@@ -298,7 +319,7 @@ Examples
     print(a)
 ```
 
-References
+Reference
 
 
 ```python
@@ -319,7 +340,7 @@ References
 
 [def __init__(self, queue_list: list = None, max_size: int = None):](./../toolbox/queue_local.py#L30) 
 
-Notes
+Note
 
 
 ```python
@@ -327,14 +348,14 @@ Notes
         If the max_size is not None, then the queue will be initialized with the max_size
 ```
 
-Returns
+Return
 
 
 ```python
         None
 ```
 
-Examples
+Example
 
 
 ```python
@@ -360,21 +381,21 @@ Examples
 
 [def enqueue(self, item):](./../toolbox/queue_local.py#L61) 
 
-Notes
+Note
 
 
 ```python
         Adds the item to the end of the queue
 ```
 
-Returns
+Return
 
 
 ```python
         None
 ```
 
-Examples
+Example
 
 
 ```python
@@ -402,14 +423,14 @@ Examples
 
 [def dequeue(self):](./../toolbox/queue_local.py#L90) 
 
-Notes
+Note
 
 
 ```python
         Removes the first item from the queue
 ```
 
-Returns
+Return
 
 
 ```python
@@ -417,7 +438,7 @@ Returns
             The item that was removed from the queue
 ```
 
-Examples
+Example
 
 
 ```python
@@ -447,14 +468,14 @@ Examples
 
 [def size(self) -> int:](./../toolbox/queue_local.py#L118) 
 
-Notes
+Note
 
 
 ```python
         Returns the size of the queue
 ```
 
-Returns
+Return
 
 
 ```python
@@ -462,7 +483,7 @@ Returns
             The size of the queue
 ```
 
-Examples
+Example
 
 
 ```python
@@ -491,14 +512,14 @@ Examples
 
 [def is_empty(self) -> bool:](./../toolbox/queue_local.py#L146) 
 
-Notes
+Note
 
 
 ```python
         Returns True if the queue is empty, False otherwise
 ```
 
-Returns
+Return
 
 
 ```python
@@ -506,7 +527,7 @@ Returns
             True if the queue is empty, False otherwise
 ```
 
-Examples
+Example
 
 
 ```python
@@ -534,14 +555,14 @@ Examples
 
 [def peek(self):](./../toolbox/queue_local.py#L173) 
 
-Notes
+Note
 
 
 ```python
         Returns the first item in the queue without removing it
 ```
 
-Returns
+Return
 
 
 ```python
@@ -549,7 +570,7 @@ Returns
             The first item in the queue
 ```
 
-Examples
+Example
 
 
 ```python
@@ -579,14 +600,14 @@ Examples
 
 [def get_list(self):](./../toolbox/queue_local.py#L201) 
 
-Notes
+Note
 
 
 ```python
         Returns the list of items in the queue
 ```
 
-Returns
+Return
 
 
 ```python
@@ -594,7 +615,7 @@ Returns
             The list of items in the queue
 ```
 
-Examples
+Example
 
 
 ```python
@@ -624,14 +645,14 @@ Examples
 
 [def __len__(self):](./../toolbox/queue_local.py#L230) 
 
-Notes
+Note
 
 
 ```python
         Returns the size of the queue
 ```
 
-Returns
+Return
 
 
 ```python
@@ -639,7 +660,7 @@ Returns
             The size of the queue
 ```
 
-Examples
+Example
 
 
 ```python
@@ -667,14 +688,14 @@ Examples
 
 [def copy(self):](./../toolbox/queue_local.py#L256) 
 
-Notes
+Note
 
 
 ```python
         Returns a copy of the queue
 ```
 
-Returns
+Return
 
 
 ```python
@@ -682,7 +703,7 @@ Returns
             A copy of the queue
 ```
 
-Examples
+Example
 
 
 ```python
@@ -712,14 +733,14 @@ Examples
 
 [def __copy__(self):](./../toolbox/queue_local.py#L288) 
 
-Notes
+Note
 
 
 ```python
         Returns a copy of the queue
 ```
 
-Returns
+Return
 
 
 ```python
@@ -727,7 +748,7 @@ Returns
             A copy of the queue
 ```
 
-Examples
+Example
 
 
 ```python
@@ -757,14 +778,14 @@ Examples
 
 [def __eq__(self, other):](./../toolbox/queue_local.py#L317) 
 
-Notes
+Note
 
 
 ```python
         Returns True if the queues are equal, False otherwise
 ```
 
-Returns
+Return
 
 
 ```python
@@ -772,7 +793,7 @@ Returns
             True if the queues are equal, False otherwise
 ```
 
-Examples
+Example
 
 
 ```python
@@ -798,14 +819,14 @@ Examples
 
 [def __ne__(self, other):](./../toolbox/queue_local.py#L348) 
 
-Notes
+Note
 
 
 ```python
         Returns True if the queues are not equal, False otherwise
 ```
 
-Returns
+Return
 
 
 ```python
@@ -813,7 +834,7 @@ Returns
             True if the queues are not equal, False otherwise
 ```
 
-Examples
+Example
 
 
 ```python
@@ -839,14 +860,14 @@ Examples
 
 [def __getitem__(self, index):](./../toolbox/queue_local.py#L373) 
 
-Notes
+Note
 
 
 ```python
         Returns the item at the given index
 ```
 
-Returns
+Return
 
 
 ```python
@@ -854,7 +875,7 @@ Returns
             The item at the given index
 ```
 
-Examples
+Example
 
 
 ```python
@@ -879,21 +900,21 @@ Examples
 
 [def __setitem__(self, index, value):](./../toolbox/queue_local.py#L397) 
 
-Notes
+Note
 
 
 ```python
         Sets the item at the given index to the given value
 ```
 
-Returns
+Return
 
 
 ```python
         None
 ```
 
-Examples
+Example
 
 
 ```python
@@ -919,21 +940,21 @@ Examples
 
 [def __delitem__(self, index):](./../toolbox/queue_local.py#L423) 
 
-Notes
+Note
 
 
 ```python
         Deletes the item at the given index
 ```
 
-Returns
+Return
 
 
 ```python
         None
 ```
 
-Examples
+Example
 
 
 ```python
@@ -959,14 +980,14 @@ Examples
 
 [def __iter__(self):](./../toolbox/queue_local.py#L447) 
 
-Notes
+Note
 
 
 ```python
         Returns an iterator for the queue
 ```
 
-Returns
+Return
 
 
 ```python
@@ -974,7 +995,7 @@ Returns
             An iterator for the queue
 ```
 
-Examples
+Example
 
 
 ```python
@@ -1000,14 +1021,14 @@ Examples
 
 [def __reversed__(self):](./../toolbox/queue_local.py#L471) 
 
-Notes
+Note
 
 
 ```python
         Returns an iterator for the queue in reverse order
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1015,7 +1036,7 @@ Returns
             An iterator for the queue in reverse order
 ```
 
-Examples
+Example
 
 
 ```python
@@ -1041,14 +1062,14 @@ Examples
 
 [def __contains__(self, item):](./../toolbox/queue_local.py#L495) 
 
-Notes
+Note
 
 
 ```python
         Returns True if the item is in the queue, False otherwise
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1056,7 +1077,7 @@ Returns
             True if the item is in the queue, False otherwise
 ```
 
-Examples
+Example
 
 
 ```python
@@ -1081,14 +1102,14 @@ Examples
 
 [def __add__(self, other):](./../toolbox/queue_local.py#L519) 
 
-Notes
+Note
 
 
 ```python
         Returns a new queue with the items from both queues
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1096,7 +1117,7 @@ Returns
             A new queue with the items from both queues
 ```
 
-Examples
+Example
 
 
 ```python
@@ -1123,14 +1144,14 @@ Examples
 
 [def __iadd__(self, other):](./../toolbox/queue_local.py#L550) 
 
-Notes
+Note
 
 
 ```python
         Returns this queue with the items from both queues
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1138,7 +1159,7 @@ Returns
             This queue with the items from both queues
 ```
 
-Examples
+Example
 
 
 ```python
@@ -1165,14 +1186,14 @@ Examples
 
 [def __mul__(self, other):](./../toolbox/queue_local.py#L578) 
 
-Notes
+Note
 
 
 ```python
         Returns a new queue with the items from this queue repeated the given number of times
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1180,7 +1201,7 @@ Returns
             A new queue with the items from this queue repeated the given number of times
 ```
 
-Examples
+Example
 
 
 ```python
@@ -1206,14 +1227,14 @@ Examples
 
 [def __imul__(self, other):](./../toolbox/queue_local.py#L607) 
 
-Notes
+Note
 
 
 ```python
         Returns this queue with the items from this queue repeated the given number of times
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1221,7 +1242,7 @@ Returns
             This queue with the items from this queue repeated the given number of times
 ```
 
-Examples
+Example
 
 
 ```python
@@ -1247,14 +1268,14 @@ Examples
 
 [def __str__(self):](./../toolbox/queue_local.py#L636) 
 
-Notes
+Note
 
 
 ```python
         Returns a string representation of the queue
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1262,7 +1283,7 @@ Returns
             A string representation of the queue
 ```
 
-Examples
+Example
 
 
 ```python
@@ -1299,14 +1320,14 @@ Examples
 
 [def set_storage_path(path):](./../toolbox/database.py#L9) 
 
-Notes
+Note
 
 
 ```python
     This function is used to set the path to the folder where the database files will be stored
 ```
 
-Parameters
+Parameter
 
 
 ```python
@@ -1314,7 +1335,7 @@ Parameters
         The path to the folder where the database files will be stored
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1322,14 +1343,14 @@ Returns
         This function does not return anything
 ```
 
-Examples
+Example
 
 
 ```python
     set_storage_path('C:/Users/JohnDoe/Documents/MyDatabase')
 ```
 
-References
+Reference
 
 
 ```python
@@ -1352,7 +1373,7 @@ References
 
 [def slugify(value, allow_unicode=False):](./../toolbox/database.py#L41) 
 
-Notes
+Note
 
 
 ```python
@@ -1360,7 +1381,7 @@ Notes
     This is useful for creating file names from strings.
 ```
 
-Parameters
+Parameter
 
 
 ```python
@@ -1370,7 +1391,7 @@ Parameters
         Whether or not to allow unicode characters
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1378,14 +1399,14 @@ Returns
         The slugified string
 ```
 
-Examples
+Example
 
 
 ```python
     a = slugify('Hello World')
 ```
 
-References
+Reference
 
 
 ```python
@@ -1408,14 +1429,14 @@ References
 
 [def get(name: str):](./../toolbox/database.py#L77) 
 
-Notes
+Note
 
 
 ```python
     This function is used to load objects from the database folder
 ```
 
-Parameters
+Parameter
 
 
 ```python
@@ -1423,7 +1444,7 @@ Parameters
         The name of the file to be loaded
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1431,14 +1452,14 @@ Returns
         The object loaded from the file, could be anything
 ```
 
-Examples
+Example
 
 
 ```python
     spreadsheet_data = get('spreadsheet_people')
 ```
 
-References
+Reference
 
 
 ```python
@@ -1461,14 +1482,14 @@ References
 
 [def get_modified_date(name: str):](./../toolbox/database.py#L112) 
 
-Notes
+Note
 
 
 ```python
     This function is used to get the last modified date of a file in the database folder
 ```
 
-Parameters
+Parameter
 
 
 ```python
@@ -1476,7 +1497,7 @@ Parameters
         The name of the file to be loaded
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1484,14 +1505,14 @@ Returns
         The datetime object of the last modified date
 ```
 
-Examples
+Example
 
 
 ```python
     date = get_modified_date('spreadsheet_people')
 ```
 
-References
+Reference
 
 
 ```python
@@ -1514,14 +1535,14 @@ References
 
 [def save(name: str, data: any) -> None:](./../toolbox/database.py#L147) 
 
-Notes
+Note
 
 
 ```python
     This function is used to save objects to the database folder
 ```
 
-Parameters
+Parameter
 
 
 ```python
@@ -1531,7 +1552,7 @@ Parameters
         The data to be saved
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1539,7 +1560,7 @@ Returns
         This function does not return anything
 ```
 
-Examples
+Example
 
 
 ```python
@@ -1548,7 +1569,7 @@ Examples
     save('spreadsheet_people', spreadsheet_data)
 ```
 
-References
+Reference
 
 
 ```python
@@ -1571,14 +1592,14 @@ References
 
 [def delete_database(name: str) -> object:](./../toolbox/database.py#L182) 
 
-Notes
+Note
 
 
 ```python
     This function is used to delete objects from the database folder
 ```
 
-Parameters
+Parameter
 
 
 ```python
@@ -1586,7 +1607,7 @@ Parameters
         The name of the file to be deleted
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1594,7 +1615,7 @@ Returns
         The object loaded from the file, could be anything
 ```
 
-Examples
+Example
 
 
 ```python
@@ -1605,7 +1626,7 @@ Examples
     delete_database('spreadsheet_people')
 ```
 
-References
+Reference
 
 
 ```python
@@ -1628,14 +1649,14 @@ References
 
 [def save_key(platform: str, key: str, override: bool = False) -> None:](./../toolbox/database.py#L220) 
 
-Notes
+Note
 
 
 ```python
     This function is used to save keys in a secure location
 ```
 
-Parameters
+Parameter
 
 
 ```python
@@ -1647,7 +1668,7 @@ Parameters
         Whether or not to override the key if it already exists
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1655,14 +1676,14 @@ Returns
         This function does not return anything
 ```
 
-Examples
+Example
 
 
 ```python
     save_key('google', '<google_api_key>')
 ```
 
-References
+Reference
 
 
 ```python
@@ -1685,14 +1706,14 @@ References
 
 [def load_key(platform: str) -> str:](./../toolbox/database.py#L267) 
 
-Notes
+Note
 
 
 ```python
         This function is used to load keys from a secure location
 ```
 
-Parameters
+Parameter
 
 
 ```python
@@ -1700,7 +1721,7 @@ Parameters
             The key to be loaded (e.g. '<google_api_key>')
 ```
 
-Returns
+Return
 
 
 ```python
@@ -1708,14 +1729,14 @@ Returns
             This function returns the key if it exists, otherwise it returns None
 ```
 
-Examples
+Example
 
 
 ```python
         key = load_key('google')
 ```
 
-References
+Reference
 
 
 ```python
