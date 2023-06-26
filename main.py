@@ -17,9 +17,8 @@ def main():
         # If it is a new day, update the database
         if now - last_updated > 86400 * days_to_refresh:
             print("New Day, updating database")
-            ticker_info = ticker_retreival.get_all_ticker_information()
+            ticker_retreival.get_all_ticker_information()
             last_updated = now
-            print(ticker_info)
         time.sleep(10)
 
 
